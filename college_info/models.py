@@ -1,5 +1,5 @@
 from django.db import models
-
+from datetime import date
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 
@@ -73,5 +73,18 @@ class Teaches(models.Model):
         btch = Batch.objects.get(id = self.batch_id)
         crs = Course.objects.get(id = self.course_id)
         stf = Staff.objects.get(id=self.staff_id)
-        return '{}:{}:{}'.format(btch,crs,stf)
+        return '{}:{}'.format(btch,crs)
 
+class Assignment(models.Model):
+    teach = models.ForeignKey(Teaches,on_delete=models.CASCADE)
+    title = models.CharField(max_length=100)
+    message = models.TextField()
+    submission_date = models.DateField()
+    doc = models.FileField(upload_to='assignments')
+
+    def __str__(self):
+        return '{}'.format(self.teach)
+
+    @property
+    def date_passed(self):
+        return date.today() > self.submission_date

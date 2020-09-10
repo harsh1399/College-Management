@@ -1,1 +1,30 @@
 {% extends "college_info/base.html" %}
+{% block content %}
+    <div class="container">
+        {% if assignments %}
+            <div class="row">
+                {% for assign in assignments %}
+                    {% if not assign.date_passed %}
+                        <div class="col-md-4">
+                            <div class="card mb-2">
+                                <div class="card-header text-white bg-info">
+                                {{ assign.teach.course }}
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title">{{ assign.title }}</h5>
+                                    <h6 class="card-subtitle mb-2 text-muted">Submission Date:{{ assign.submission_date }}</h6>
+                                    <p class="card-text">{{ assign.message }}</p>
+                                    <a href="{{ assign.doc.url }}" class="card-link">Assignment File</a>
+                                </div>
+                            </div>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        {% else %}
+            <div class="row justify-content-center">
+                <h1 class="display-4 text-muted">No Assignments</h1>
+            </div>
+        {% endif %}
+    </div>
+{% endblock content %}

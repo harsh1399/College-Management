@@ -17,9 +17,13 @@ from django.contrib import admin
 from django.urls import path
 from django.contrib.auth.views import LoginView,LogoutView
 from college_info import views
+from django.conf import settings
+from django.conf.urls.static import static
 urlpatterns = [
     path('',LoginView.as_view(template_name= 'college_info/login.html'),name='login'),
     path('logout/',LogoutView.as_view(template_name='college_info/logout.html'),name='logout'),
     path('home/',views.home,name='home'),
     path('admin/', admin.site.urls),
 ]
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
