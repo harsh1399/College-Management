@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!--<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{% static 'college_info/style.css' %}">
+    <title>CollegeManagement</title>
+
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="navbar navbar-expand-md navbar-light fixed-top" style="background-color:#e3f2fd">
+        {% if request.user.is_authenticated %}
+        <div class="container">
+          <span class="navbar-brand display-1">CollegeManagement</span>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarcontent" name="button">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarcontent">
+            <div class="navbar-nav ml-5">
+              <a class="nav-item nav-link active mx-2 " href="#">Assignments</a>
+              <a class="nav-item nav-link mx-2" href="#">Attendace</a>
+              <a class="nav-item nav-link mx-2" href="#">Marks</a>
+              <a class="nav-item nav-link mx-2" href="#">Timetable</a>
+            </div>
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item dropdown ml-5">
+                <a class="nav-link dropdown-toggle mx-2 " id="navbarDropdown" data-toggle="dropdown" href="#">{{ request.user.username }}</a>
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href="{% url 'logout' %}">Logout</a>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+        {% else %}
+        <div class="container justify-content-center">
+          <span class="navbar-brand display-1 ">CollegeManagement</span>
+        </div>
+        {% endif %}
+      </nav>
+    </header>
+    {% block content %}{% endblock %}
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  </body>
+</html>

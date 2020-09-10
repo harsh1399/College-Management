@@ -1,0 +1,16 @@
+{% extends "college_info/base.html "%}
+{%block content%}
+<div role="main" class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-5">
+            <p class="h4">You have been logged out</p>
+            <div class="border-top pt-3">
+                <small class="text-muted">
+                         <a class="btn btn-outline-info" href="{% url 'login' %}">Log In Again</a>
+                </small>
+            </div>
+        </div>
+    </div>
+</div>
+
+{%endblock content%}
