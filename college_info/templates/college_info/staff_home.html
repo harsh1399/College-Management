@@ -1,10 +1,57 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-<h1>hi teacher</h1>
-</body>
-</html>
+{% extends "college_info/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+    <div class="container mb-2 text-center" style="background:#DCDCDC; height:120px; padding:10px;">
+        <p class="lead">Add New Task</p>
+        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#assignmentform">Add Assignment</button>
+        <div class="modal fade" id="assignmentform" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Add Assignment</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <form method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="modal-body">
+                            {{ form|crispy }}
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-success">Save</button>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        {% if assignments %}
+            <div class="row">
+                {% for assign in assignments %}
+                    {% if not assign.date_passed %}
+                        <div class="col-md-4">
+                            <div class="card mb-2">
+                                <div class="card-header text-white bg-info">
+                                {{ assign.teach.course }}
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title">{{ assign.title }}</h5>
+                                    <h6 class="card-subtitle mb-2 text-muted">Submission Date:{{ assign.submission_date }}</h6>
+                                    <p class="card-text">{{ assign.message }}</p>
+                                    <a href="{{ assign.doc.url }}" class="card-link">Assignment File</a>
+                                </div>
+                            </div>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        {% else %}
+            <div class="row justify-content-center">
+                <h1 class="display-4 text-muted">No Assignments</h1>
+            </div>
+        {% endif %}
+    </div>
+{% endblock content %}
