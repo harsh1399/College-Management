@@ -17,11 +17,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d1a6d78c-ae60-4d14-b76b-ccb3728afb02" name="Default Changelist" comment="">
+<<<<<<< HEAD
       <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/College_Management.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/College_Management.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+=======
+      <change afterPath="$PROJECT_DIR$/college_info/migrations/0003_periodtime.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/college_info/templates/college_info/student_timetable.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/College_Management/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/College_Management/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/college_info/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/college_info/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/college_info/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/college_info/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/college_info/templates/college_info/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/college_info/templates/college_info/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/college_info/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/college_info/views.py" afterDir="false" />
+>>>>>>> Timetable
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -32,8 +43,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTML File" />
         <option value="Python Script" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>

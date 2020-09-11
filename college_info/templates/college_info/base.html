@@ -13,7 +13,7 @@
 
   </head>
   <body>
-    <header class="site-header">
+    <header class="site-header topheader">
       <nav class="navbar navbar-expand-md navbar-light fixed-top" style="background-color:#e3f2fd">
         {% if request.user.is_authenticated %}
         <div class="container">
@@ -23,10 +23,10 @@
           </button>
           <div class="collapse navbar-collapse" id="navbarcontent">
             <div class="navbar-nav ml-5">
-              <a class="nav-item nav-link active mx-2 " href="#">Assignments</a>
+              <a class="nav-item nav-link active mx-2 " href="{% url 'home' %}">Assignments</a>
               <a class="nav-item nav-link mx-2" href="#">Attendace</a>
               <a class="nav-item nav-link mx-2" href="#">Marks</a>
-              <a class="nav-item nav-link mx-2" href="#">Timetable</a>
+              <a class="nav-item nav-link mx-2" href="{% url 'student_timetable' request.user.student.batch_id.id %}">Timetable</a>
             </div>
             <ul class="navbar-nav ml-auto">
               <li class="nav-item dropdown ml-5">
