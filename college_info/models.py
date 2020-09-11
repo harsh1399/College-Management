@@ -88,3 +88,25 @@ class Assignment(models.Model):
     @property
     def date_passed(self):
         return date.today() > self.submission_date
+
+class PeriodTime(models.Model):
+    TimeSlots = (
+        ('8:45-9:45','8:45-9:45'),
+        ('9:45-10:45', '9:45-10:45'),
+        ('11:00-12:00', '11:00-12:00'),
+        ('12:00-1:00', '12:00-1:00'),
+        ('2:00-3:00', '2:00-3:00'),
+    )
+    DayOfWeek = (
+        ('Monday','Monday'),
+        ('Tuesday', 'Tuesday'),
+        ('Wednesday', 'Wednesday'),
+        ('Thursday', 'Thursday'),
+        ('Friday', 'Friday'),
+    )
+    teach = models.ForeignKey(Teaches,on_delete=models.CASCADE)
+    period = models.CharField(max_length=50,choices=TimeSlots)
+    day = models.CharField(max_length=20,choices=DayOfWeek)
+
+    def __str__(self):
+        return '{}:{}:{}'.format(self.teach,self.period,self.day)
