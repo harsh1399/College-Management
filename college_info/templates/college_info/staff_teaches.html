@@ -1,0 +1,36 @@
+{% extends "college_info/base.html" %}
+{% block content %}
+    <div class="container">
+        <div class="card">
+            <div class="card-header text-center"><b>CLASSES</b></div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered table-striped text-center">
+                        <thead>
+                            <tr>
+                                <th>Batch</th>
+                                <th>Course</th>
+                                <th>  </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for class in staff.teaches_set.all %}
+                                <tr>
+                                    <td>{{ class.batch }}</td>
+                                    <td>{{ class.course }}</td>
+                                    <td>
+                                        {% if choice  == 1 %}
+                                            <a class="btn btn-primary" href="#" >Enter Attendance</a>
+                                        {% endif %}
+                                    </td>
+                                </tr>
+                            {% empty %}
+                                <p>Teacher has no course</p>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}

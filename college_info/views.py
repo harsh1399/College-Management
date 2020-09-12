@@ -1,5 +1,5 @@
 from django.shortcuts import render,redirect,HttpResponseRedirect
-from college_info.models import Assignment
+from college_info.models import Assignment,Staff
 from .forms import AssignmentForm
 from .models import Teaches,PeriodTime
 from django.urls import reverse
@@ -67,3 +67,12 @@ def staff_timetable(request,staff_id):
 
     context = {'timetable': timetable}
     return render(request, 'college_info/staff_timetable.html', context)
+
+@login_required()
+def staff_teaches(request,staff_id,choice):
+    staff = Staff.objects.get(id=staff_id)
+    context={
+        'staff':staff,
+        'choice':choice
+    }
+    return render(request,'college_info/staff_teaches.html',context)

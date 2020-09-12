@@ -25,6 +25,7 @@ urlpatterns = [
     path('home/',views.home,name='home'),
     path('student/timetable/<slug:batch_id>/',views.student_timetable,name='student_timetable'),
     path('staff/timetable/<slug:staff_id>/',views.staff_timetable,name='staff_timetable'),
+    path('staff/teaches/<slug:staff_id>/<int:choice>',views.staff_teaches,name='staff_teaches'),
     path('admin/', admin.site.urls),
 ]
 if settings.DEBUG:
