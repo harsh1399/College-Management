@@ -46,3 +46,24 @@ def student_timetable(request,batch_id):
     context = {'timetable':timetable}
     return render(request,'college_info/student_timetable.html',context)
 
+@login_required()
+def staff_timetable(request,staff_id):
+    period_time = PeriodTime.objects.filter(teach__staff__id=staff_id)
+    timetable = [['' for i in range(8)] for j in range(5)]
+    for index, day in enumerate(PeriodTime.DayOfWeek):
+        time_slot = 0
+        for slot in range(8):
+            if slot == 0:
+                timetable[index][0] = day[0]
+                continue
+            elif slot == 3 or slot == 6:
+                continue
+            try:
+                a = period_time.get(period=PeriodTime.TimeSlots[time_slot][0], day=day[0])
+                timetable[index][slot] = a.teach.course.id + "\n(" + a.teach.staff.name + ")"
+            except PeriodTime.DoesNotExist:
+                pass
+            time_slot += 1
+
+    context = {'timetable': timetable}
+    return render(request, 'college_info/staff_timetable.html', context)

@@ -23,7 +23,8 @@ urlpatterns = [
     path('',LoginView.as_view(template_name= 'college_info/login.html'),name='login'),
     path('logout/',LogoutView.as_view(template_name='college_info/logout.html'),name='logout'),
     path('home/',views.home,name='home'),
-    path('student/<slug:batch_id>/timetable/',views.student_timetable,name='student_timetable'),
+    path('student/timetable/<slug:batch_id>/',views.student_timetable,name='student_timetable'),
+    path('staff/timetable/<slug:staff_id>/',views.staff_timetable,name='staff_timetable'),
     path('admin/', admin.site.urls),
 ]
 if settings.DEBUG:

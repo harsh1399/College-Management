@@ -26,7 +26,11 @@
               <a class="nav-item nav-link active mx-2 " href="{% url 'home' %}">Assignments</a>
               <a class="nav-item nav-link mx-2" href="#">Attendace</a>
               <a class="nav-item nav-link mx-2" href="#">Marks</a>
-              <a class="nav-item nav-link mx-2" href="{% url 'student_timetable' request.user.student.batch_id.id %}">Timetable</a>
+              {% if request.user.is_student %}
+                <a class="nav-item nav-link mx-2" href="{% url 'student_timetable' request.user.student.batch_id.id %}">Timetable</a>
+              {% else %}
+                <a class="nav-item nav-link mx-2" href="{% url 'staff_timetable' request.user.staff.id %}">Timetable</a>
+              {% endif %}
             </div>
             <ul class="navbar-nav ml-auto">
               <li class="nav-item dropdown ml-5">
