@@ -1,0 +1,54 @@
+{% extends "college_info/base.html" %}
+{% block content %}
+    <div class="container">
+            <div class="card">
+                <div class="card-header">
+                    {{ teach.course }}
+                </div>
+                <div class="card-body">
+                    <form action="{% url 'staff_attendance_confirm' batch_attendance.id %}" method="post">
+                        {% csrf_token %}
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-striped text-center">
+                                <thead>
+                                    <tr>
+                                        <th>Student Name</th>
+                                        <th> </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for att in att_list %}
+                                        <tr>
+                                            <td>{{ att.student.name }}</td>
+                                            <td>
+                                                <div class="btn-group btn-group-toggle" role="group" data-toggle="buttons">
+                                                    {% if att.status %}
+                                                    <label class="btn btn-outline-success active">
+                                                        <input type="radio" name="{{ att.student.roll_no }}" id="option1" autocomplete="off" value="present" checked> Present
+                                                    </label>
+
+                                                    <label class="btn btn-outline-danger">
+                                                        <input type="radio" name="{{ att.student.roll_no }}" id="option2" autocomplete="off" value="absent"> Absent
+                                                    </label>
+                                                    {% else %}
+                                                        <label class="btn btn-outline-success">
+                                                            <input type="radio" name="{{ att.student.roll_no }}" id="option3" autocomplete="off" value="present" checked> Present
+                                                        </label>
+
+                                                        <label class="btn btn-outline-danger active">
+                                                            <input type="radio" name="{{ att.student.roll_no }}" id="option4" autocomplete="off" value="absent"> Absent
+                                                        </label>
+                                                    {% endif %}
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                        <input class="btn btn-success" type="submit" value="Submit">
+                    </form>
+                </div>
+            </div>
+    </div>
+{% endblock content %}

@@ -1,0 +1,72 @@
+{% extends "college_info/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+    <div class="container">
+        <div class="card">
+            <div class="card-header">
+                <b>ATTENDANCE</b>
+                <button type="button" class="btn btn-success float-right" data-toggle="modal" data-target="#attendanceform">Add Attendance</button>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered table-striped text-center">
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Status</th>
+                                <th>   </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for att in batch_attendance %}
+                                <tr>
+                                    <td>{{ att.date }}</td>
+                                    {% if att.status == 0 %}
+                                        <td class="p-3 mb-2 bg-danger text-white">Not Marked</td>
+                                        <td>
+                                            <a class="btn btn-primary" href="{% url 'staff_attendance' att.id %}" role="button">Enter Attendance</a>
+                                            <a class="btn btn-warning" href="{% url 'cancel_class' att.id %}">Cancel Class</a>
+                                        </td>
+                                    {% elif att.status == 1 %}
+                                        <td class="p-3 mb-2 bg-success text-white">Marked</td>
+                                        <td><a class="btn btn-secondary" href="{% url 'edit_attd' att.id %}" role="button">Edit Attendance</a> </td>
+                                    {% else %}
+                                        <td class="p-3 mb-2 bg-warning text-white">Cancelled</td>
+                                        <td><a class="btn btn-primary" href="{% url 'staff_attendance' att.id %}" role="button">Enter Attendance</a></td>
+                                    {% endif %}
+                                </tr>
+                            {% empty %}
+                                <p>No class taken.</p>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="attendanceform" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Add Attendance</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <form method="POST">
+                        {% csrf_token %}
+                        <div class="modal-body">
+
+                                {{ form|crispy }}
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-success">Save</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock content %}

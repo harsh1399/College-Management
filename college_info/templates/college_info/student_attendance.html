@@ -1,0 +1,42 @@
+{% extends "college_info/base.html" %}
+{% block content %}
+    <div class="container">
+        <div class="card">
+            <div class="card-header text-center">
+                <b>Attendance</b>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered table-striped text-center">
+                        <thead>
+                            <tr>
+                                <th>Course Id</th>
+                                <th>Course Name</th>
+                                <th>Total Class</th>
+                                <th>Attended Class</th>
+                                <th>Attendance(in Percentage)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for a in att_list %}
+                                <tr>
+                                    <td>{{ a.course.id}}</td>
+                                    <td>{{ a.course }} </td>
+                                    <td>{{ a.total_class }}</td>
+                                    <td>{{ a.attended_class }}</td>
+                                    {% if a.attendance < 75 %}
+                                        <td class="bg-danger text-white" >{{ a.attendance }}</td>
+                                    {% else %}
+                                        <td class="bg-success text-white" >{{ a.attendance }}</td>
+                                    {% endif %}
+                                </tr>
+                                {%empty%}
+                                    <p>Student did not took any course.</p>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}

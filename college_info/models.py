@@ -2,7 +2,10 @@ from django.db import models
 from datetime import date
 from django.db import models
 from django.contrib.auth.models import AbstractUser
-
+import math
+from django.utils import timezone
+import django
+date_today = timezone.now()
 class User(AbstractUser):
     @property
     def is_teacher(self):
@@ -110,3 +113,56 @@ class PeriodTime(models.Model):
 
     def __str__(self):
         return '{}:{}:{}'.format(self.teach,self.period,self.day)
+
+class BatchAttendance(models.Model):
+    teach = models.ForeignKey(Teaches,on_delete=models.CASCADE)
+    date = models.DateField()
+    status = models.IntegerField(default=0)
+
+    def __str__(self):
+        return '{} : {}'.format(self.teach,self.date)
+
+class Attendance(models.Model):
+    course = models.ForeignKey(Course,on_delete=models.CASCADE)
+    student = models.ForeignKey(Student,on_delete=models.CASCADE)
+    batch_attendance= models.ForeignKey(BatchAttendance,on_delete=models.CASCADE)
+    date = models.DateField(default=django.utils.timezone.now)
+    status = models.BooleanField(default='True')
+
+    def __str__(self):
+        sname = Student.objects.get(name=self.student)
+        cname = Course.objects.get(name=self.course)
+        return '{} : {}'.format(sname.name,cname.name)
+
+class AttendanceTotal(models.Model):
+    course = models.ForeignKey(Course,on_delete=models.CASCADE)
+    student = models.ForeignKey(Student,on_delete=models.CASCADE)
+
+    class Meta:
+        unique_together = (('student','course'),)
+
+    @property
+    def attended_class(self):
+        student = Student.objects.get(name=self.student)
+        course=Course.objects.get(name=self.course)
+        attendance_obj= Attendance.objects.filter(course=course,student=student,status='True').count()
+        return attendance_obj
+
+    @property
+    def total_class(self):
+        student = Student.objects.get(name=self.student)
+        course = Course.objects.get(name=self.course)
+        total_class=Attendance.objects.filter(course=course,student=student).count()
+        return total_class
+
+    @property
+    def attendance(self):
+        student = Student.objects.get(name=self.student)
+        course = Course.objects.get(name=self.course)
+        total_class = Attendance.objects.filter(course=course, student=student).count()
+        att_class = Attendance.objects.filter(course=course, student=student,status='True').count()
+        if total_class == 0:
+            attd = 0
+        else:
+            attd = round(att_class/total_class *100,2)
+        return attd

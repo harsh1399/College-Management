@@ -1,0 +1,48 @@
+{% extends "college_info/base.html" %}
+{% block content %}
+    <div class="container">
+        {% if batch.student_set.all %}
+            <div class="card">
+                <div class="card-header">
+                    {{ teach.course }}
+                </div>
+                <div class="card-body">
+                    <form action="{% url 'staff_attendance_confirm' batch_attendance.id %}" method="post">
+                        {% csrf_token %}
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-striped text-center">
+                                <thead>
+                                    <tr>
+                                        <th>Student Name</th>
+                                        <th> </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for student in batch.student_set.all %}
+                                        <tr>
+                                            <td>{{ student.name }}</td>
+                                            <td>
+                                                <div class="btn-group btn-group-toggle" role="group" data-toggle="buttons">
+                                                    <label class="btn btn-outline-success active">
+                                                        <input type="radio" name="{{ student.roll_no }}" id="option1" autocomplete="off" value="present" checked> Present
+                                                    </label>
+
+                                                    <label class="btn btn-outline-danger">
+                                                        <input type="radio" name="{{ student.roll_no }}" id="option2" autocomplete="off" value="absent"> Absent
+                                                    </label>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                        <input class="btn btn-success" type="submit" value="Submit">
+                    </form>
+                </div>
+            </div>
+        {% else %}
+            <p>No students in Class</p>
+        {% endif %}
+    </div>
+{% endblock content %}
