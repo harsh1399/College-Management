@@ -24,8 +24,14 @@ urlpatterns = [
     path('logout/',LogoutView.as_view(template_name='college_info/logout.html'),name='logout'),
     path('home/',views.home,name='home'),
     path('student/timetable/<slug:batch_id>/',views.student_timetable,name='student_timetable'),
+    path('student/attendance/<slug:stud_roll_no>/',views.student_attendance,name='student_attendance'),
     path('staff/timetable/<slug:staff_id>/',views.staff_timetable,name='staff_timetable'),
     path('staff/teaches/<slug:staff_id>/<int:choice>',views.staff_teaches,name='staff_teaches'),
+    path('staff/ClassDates/<slug:teaches_id>/',views.class_dates,name='staff_class_dates'),
+    path('staff/Attendance/<int:batch_attendance_id>/',views.staff_attendance,name='staff_attendance'),
+    path('staff/Attendance/<int:batch_attendance_id>/confirm',views.staff_attendance_confirm,name='staff_attendance_confirm'),
+    path('staff/CancelClass/<int:batch_attendance_id>/',views.cancel_class,name='cancel_class'),
+    path('staff/EditAttendance/<int:batch_attendance_id>/',views.edit_attendance,name='edit_attd'),
     path('admin/', admin.site.urls),
 ]
 if settings.DEBUG:

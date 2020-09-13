@@ -7,32 +7,28 @@
         <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
       </path>
     </expand>
-    <select>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="BRANCH:master" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
-    </select>
+    <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d1a6d78c-ae60-4d14-b76b-ccb3728afb02" name="Default Changelist" comment="">
-<<<<<<< HEAD
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/College_Management.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/College_Management.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-=======
-      <change afterPath="$PROJECT_DIR$/college_info/migrations/0003_periodtime.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/college_info/templates/college_info/student_timetable.html" afterDir="false" />
+    <list default="true" id="62fe1ed5-70cd-40a8-b2bd-38f3b0586060" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/college_info/migrations/0004_attendance_batchattendance.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/college_info/migrations/0005_auto_20200912_1651.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/college_info/migrations/0006_auto_20200913_0955.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/college_info/migrations/0007_auto_20200913_0958.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/college_info/migrations/0008_auto_20200913_0959.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/college_info/migrations/0009_auto_20200913_1000.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/college_info/templates/college_info/class_dates.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/college_info/templates/college_info/staff_attendance.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/college_info/templates/college_info/staff_edit_attendance.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/college_info/templates/college_info/student_attendance.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/College_Management/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/College_Management/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/college_info/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/college_info/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/college_info/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/college_info/forms.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/college_info/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/college_info/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/college_info/templates/college_info/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/college_info/templates/college_info/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/college_info/templates/college_info/staff_teaches.html" beforeDir="false" afterPath="$PROJECT_DIR$/college_info/templates/college_info/staff_teaches.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/college_info/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/college_info/views.py" afterDir="false" />
->>>>>>> Timetable
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -43,7 +39,6 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Python Script" />
         <option value="HTML File" />
       </list>
     </option>
@@ -51,8 +46,7 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectId" id="1hJ0Xf4f3UedxoFFOn8cmxzvFSS" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectId" id="1hRNeZTdk2q9fZ2A2zxe3Hp4X08" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -61,43 +55,18 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
-  </component>
-  <component name="RunManager">
-    <configuration name="runserver" type="PythonConfigurationType" factoryName="Python">
-      <module name="College_Management" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="F:\study\College_Management\venv\Scripts\python.exe" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/manage.py" />
-      <option name="PARAMETERS" value="runserver" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
   </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="d1a6d78c-ae60-4d14-b76b-ccb3728afb02" name="Default Changelist" comment="" />
-      <created>1599713928499</created>
+      <changelist id="62fe1ed5-70cd-40a8-b2bd-38f3b0586060" name="Default Changelist" comment="" />
+      <created>1599970040298</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1599713928499</updated>
+      <updated>1599970040298</updated>
     </task>
     <servers />
   </component>
@@ -106,69 +75,10 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="FILTERS">
-                <map>
-                  <entry key="branch">
-                    <value>
-                      <list>
-                        <option value="master" />
-                      </list>
-                    </value>
-                  </entry>
-                </map>
-              </option>
-            </State>
+            <State />
           </value>
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="220" y="2" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1599746744558">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state x="220" y="2" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.728@0.0.1366.728" timestamp="1599746744558" />
-    <state x="624" y="114" key="FileChooserDialogImpl" timestamp="1599746721027">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state x="624" y="114" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1599746721027" />
-    <state width="1345" height="223" key="GridCell.Tab.0.bottom" timestamp="1599757726157">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state width="1345" height="223" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1599757726157" />
-    <state width="1345" height="223" key="GridCell.Tab.0.center" timestamp="1599757726157">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state width="1345" height="223" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1599757726157" />
-    <state width="1345" height="223" key="GridCell.Tab.0.left" timestamp="1599757726157">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state width="1345" height="223" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1599757726157" />
-    <state width="1345" height="223" key="GridCell.Tab.0.right" timestamp="1599757726157">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state width="1345" height="223" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1599757726157" />
-    <state width="1345" height="223" key="GridCell.Tab.1.bottom" timestamp="1599757726157">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state width="1345" height="223" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1599757726157" />
-    <state width="1345" height="223" key="GridCell.Tab.1.center" timestamp="1599757726157">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state width="1345" height="223" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1599757726157" />
-    <state width="1345" height="223" key="GridCell.Tab.1.left" timestamp="1599757726157">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state width="1345" height="223" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1599757726157" />
-    <state width="1345" height="223" key="GridCell.Tab.1.right" timestamp="1599757726157">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state width="1345" height="223" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1599757726157" />
-    <state x="186" y="10" key="SettingsEditor" timestamp="1599717055955">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state x="186" y="10" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1599717055955" />
   </component>
 </project>
