@@ -10,24 +10,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="62fe1ed5-70cd-40a8-b2bd-38f3b0586060" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/college_info/migrations/0010_marks_marksclass_studentcourse.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/college_info/signals.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/college_info/templates/college_info/staff_edit_marks.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/college_info/templates/college_info/staff_enter_marks.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/college_info/templates/college_info/staff_marks_list.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/college_info/templates/college_info/staff_student_marks.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/college_info/templates/college_info/student_marks_list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/College_Management/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/College_Management/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/college_info/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/college_info/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/college_info/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/college_info/apps.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/college_info/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/college_info/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/college_info/templates/college_info/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/college_info/templates/college_info/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/college_info/templates/college_info/staff_teaches.html" beforeDir="false" afterPath="$PROJECT_DIR$/college_info/templates/college_info/staff_teaches.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/college_info/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/college_info/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-    </list>
+    <list default="true" id="62fe1ed5-70cd-40a8-b2bd-38f3b0586060" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
