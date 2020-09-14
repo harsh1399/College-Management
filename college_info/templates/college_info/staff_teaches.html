@@ -20,7 +20,10 @@
                                     <td>{{ class.course }}</td>
                                     <td>
                                         {% if choice  == 1 %}
-                                            <a class="btn btn-primary" href="{% url 'staff_class_dates' class.id %}" >Enter Attendance</a>
+                                            <a class="btn btn-primary" href="{% url 'staff_class_dates' class.id  class.course.id %}" >Enter Attendance</a>
+                                        {% elif choice == 2 %}
+                                            <a class="btn btn-success" href="{% url 'marks_list' class.id %}" role="button">Enter Marks</a>
+                                            <a class="btn btn-info" href="{% url 'staff_student_marks' class.id %}">View Students</a>
                                         {% endif %}
                                     </td>
                                 </tr>

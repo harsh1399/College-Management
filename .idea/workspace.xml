@@ -11,20 +11,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="62fe1ed5-70cd-40a8-b2bd-38f3b0586060" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/college_info/migrations/0004_attendance_batchattendance.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/college_info/migrations/0005_auto_20200912_1651.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/college_info/migrations/0006_auto_20200913_0955.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/college_info/migrations/0007_auto_20200913_0958.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/college_info/migrations/0008_auto_20200913_0959.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/college_info/migrations/0009_auto_20200913_1000.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/college_info/templates/college_info/class_dates.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/college_info/templates/college_info/staff_attendance.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/college_info/templates/college_info/staff_edit_attendance.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/college_info/templates/college_info/student_attendance.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/college_info/migrations/0010_marks_marksclass_studentcourse.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/college_info/signals.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/college_info/templates/college_info/staff_edit_marks.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/college_info/templates/college_info/staff_enter_marks.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/college_info/templates/college_info/staff_marks_list.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/college_info/templates/college_info/staff_student_marks.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/college_info/templates/college_info/student_marks_list.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/College_Management/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/College_Management/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/college_info/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/college_info/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/college_info/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/college_info/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/college_info/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/college_info/apps.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/college_info/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/college_info/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/college_info/templates/college_info/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/college_info/templates/college_info/base.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/college_info/templates/college_info/staff_teaches.html" beforeDir="false" afterPath="$PROJECT_DIR$/college_info/templates/college_info/staff_teaches.html" afterDir="false" />
@@ -39,6 +36,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Python Script" />
         <option value="HTML File" />
       </list>
     </option>
@@ -47,11 +45,15 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1hRNeZTdk2q9fZ2A2zxe3Hp4X08" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
@@ -80,5 +82,9 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
 </project>

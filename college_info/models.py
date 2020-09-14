@@ -3,9 +3,16 @@ from datetime import date
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 import math
+from django.core.validators import MinValueValidator,MaxValueValidator
 from django.utils import timezone
 import django
 date_today = timezone.now()
+
+test_name=(
+    ('Insem','Insem'),
+    ('Term Work','Term Work')
+)
+
 class User(AbstractUser):
     @property
     def is_teacher(self):
@@ -166,3 +173,42 @@ class AttendanceTotal(models.Model):
         else:
             attd = round(att_class/total_class *100,2)
         return attd
+
+class StudentCourse(models.Model):
+    student = models.ForeignKey(Student,on_delete=models.CASCADE)
+    course = models.ForeignKey(Course,on_delete=models.CASCADE)
+
+    class Meta:
+        unique_together=(('student','course'),)
+
+    def __str__(self):
+        return '{} : {}'.format(self.student,self.course)
+
+class Marks(models.Model):
+    student_course=models.ForeignKey(StudentCourse,on_delete=models.CASCADE)
+    name = models.CharField(max_length=50,choices=test_name)
+    marks = models.IntegerField(default=0,validators=[MinValueValidator(0),MaxValueValidator(100)])
+
+    class Meta:
+        unique_together=(('student_course','name'),)
+
+    def total_marks(self):
+        if self.name=='Insem':
+            return 30
+        return 20
+
+class MarksClass(models.Model):
+    teach=models.ForeignKey(Teaches,on_delete=models.CASCADE)
+    name= models.CharField(max_length=50,choices=test_name)
+    status = models.BooleanField(default='False')
+
+    class Meta:
+        unique_together=(('teach','name'),)
+
+
+
+    def total_marks(self):
+        if self.name=='Insem':
+            return 30
+        return 20
+

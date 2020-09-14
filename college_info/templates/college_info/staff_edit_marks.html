@@ -1,0 +1,39 @@
+{% extends "college_info/base.html" %}
+{% block content %}
+    <div class="container">
+            <div class="card">
+                <div class="card-header text-center">
+                    <b>Enter Marks</b>
+                </div>
+                <div class="card-body">
+                    <form action="{% url 'marks_confirm' markclass.id %}" method="post">
+                       {% csrf_token %}
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-striped text-center">
+                                <thead>
+                                     <tr>
+                                        <th>Student Name</th>
+                                        <th>Total Marks</th>
+                                         <th>Enter Marks</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for mark in markslist %}
+                                        <tr>
+                                            <td>{{ mark.student_course.student.name }}</td>
+                                            <td>{{ mark.total_marks }}</td>
+                                            <td>
+                                                <input type="number" name="{{ mark.student_course.student.roll_no }}" min="0" max="{{ markclass.total_marks }}" value="{{mark.marks}}">
+                                            </td>
+                                        </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                        <input class="btn btn-success" type="submit" value="Submit">
+                    </form>
+                </div>
+            </div>
+    </div>
+
+{% endblock content %}

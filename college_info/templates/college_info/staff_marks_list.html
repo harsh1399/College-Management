@@ -1,0 +1,40 @@
+{% extends "college_info/base.html" %}
+{% block content %}
+    <div class="container">
+        <div class="card">
+            <div class="card-header text-center"><b>Marks</b></div>
+
+        <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered table-striped text-center">
+                        <thead>
+                            <tr>
+                                <th>Test Name</th>
+                                <th>Status</th>
+                                <th>  </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for markclass in mlist %}
+                                <tr>
+                                    <td>{{ markclass.name }}</td>
+                                    {% if not markclass.status %}
+                                        <td class="p-3 mb-2 bg-danger text-white">Not Marked</td>
+                                        <td>
+                                            <a class="btn btn-primary" href="{% url 'enter_marks' markclass.id %}" role="button">Enter Marks</a>
+                                        </td>
+                                    {% else %}
+                                        <td class="p-3 mb-2 bg-success text-white">Marked</td>
+                                        <td><a class="btn btn-warning" href="{% url 'edit_marks' markclass.id %}" role="button">Edit Marks</a> </td>
+                                    {% endif %}
+                                </tr>
+                            {% empty %}
+                                <p>Student has no course</p>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+        </div>
+        </div>
+    </div>
+{% endblock content %}
