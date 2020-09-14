@@ -1,0 +1,37 @@
+{% extends "college_info/base.html" %}
+{% block content %}
+    <div class="container">
+        <div class="card">
+            <div class="card-header text-center">
+                <b>Marks</b>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered table-striped text-center">
+                        <thead>
+                            <tr>
+                                <th>Course ID</th>
+                                <th>Course Name</th>
+                                <th>Insem</th>
+                                <th>Term Work</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for sc in sclist %}
+                                <tr>
+                                    <td>{{ sc.course.id }}</td>
+                                    <td>{{ sc.course.name }}</td>
+                                    {% for mark in sc.marks_set.all %}
+                                        <td>{{ mark.marks }}</td>
+                                    {% endfor %}
+                                </tr>
+                            {% empty %}
+                                <p>Student Has No Course</p>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}

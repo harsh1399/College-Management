@@ -1,0 +1,43 @@
+{% extends "college_info/base.html" %}
+{% block content %}
+    <div class="container">
+        {% if batch.student_set.all %}
+            <div class="card">
+                <div class="card-header text-center">
+                    <b>Enter Marks</b>
+                </div>
+                <div class="card-body">
+                    <form action="{% url 'marks_confirm' markclass.id %}" method="post">
+                       {% csrf_token %}
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-striped text-center">
+                                <thead>
+                                     <tr>
+                                        <th>Student Name</th>
+                                        <th>Total Marks</th>
+                                         <th>Enter Marks</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for student in batch.student_set.all %}
+                                        <tr>
+                                            <td>{{ student.name }}</td>
+                                            <td>{{ markclass.total_marks }}</td>
+                                            <td>
+                                                <input type="number" name="{{ student.roll_no }}" min="0" max="{{ markclass.total_marks }}" value="0">
+                                            </td>
+                                        </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                        <input class="btn btn-success" type="submit" value="Submit">
+                    </form>
+                </div>
+            </div>
+        {% else %}
+            <p>No students in Class</p>
+        {% endif %}
+    </div>
+
+{% endblock content %}

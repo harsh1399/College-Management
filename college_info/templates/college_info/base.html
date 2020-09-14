@@ -29,9 +29,13 @@
               {% if request.user.is_student %}
                 <a class="nav-item nav-link mx-2" href="{% url 'student_attendance' request.user.student.roll_no %}">Attendance</a>
               {% else %}
-                <a class="nav-item nav-link mx-2" href="{% url 'staff_teaches' request.user.staff.id 1%}">Attendance</a>
+                <a class="nav-item nav-link mx-2" href="{% url 'staff_teaches' request.user.staff.id 1 %}">Attendance</a>
               {% endif %}
-              <a class="nav-item nav-link mx-2" href="#">Marks</a>
+              {% if request.user.is_student %}
+                <a class="nav-item nav-link mx-2" href="{% url 'student_marks' request.user.student.roll_no %}">Marks</a>
+              {% else %}
+                <a class="nav-item nav-link mx-2" href="{% url 'staff_teaches' request.user.staff.id 2 %}">Marks</a>
+              {% endif %}
               {% if request.user.is_student %}
                 <a class="nav-item nav-link mx-2" href="{% url 'student_timetable' request.user.student.batch_id.id %}">Timetable</a>
               {% else %}
