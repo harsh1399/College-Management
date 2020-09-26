@@ -1,4 +1,5 @@
 {% extends "college_info/base.html" %}
+{% load crispy_forms_tags %}
 {% block content %}
     <div class="container">
         {% if assignments %}
@@ -15,6 +16,52 @@
                                     <h6 class="card-subtitle mb-2 text-muted">Submission Date:{{ assign.submission_date }}</h6>
                                     <p class="card-text">{{ assign.message }}</p>
                                     <a href="{{ assign.doc.url }}" class="card-link">Assignment File</a>
+                                    {% if assign in submitted %}
+                                        <a class="card-link text-muted">Submitted</a>
+                                    {% else %}
+                                        <a href="#" class="card-link" data-toggle="modal" data-target="#submissionform{{ assign.id }}">Submit</a>
+                                    {% endif %}
+                                    <div class="modal fade" id="submissionform{{ assign.id }}" tabindex="-1" role="dialog">
+                                        <div class="modal-dialog modal-dialog-centered">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title">Submission Form</h5>
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <form method="POST" enctype="multipart/form-data">
+                                                    {% csrf_token %}
+                                                    <div class="modal-body">
+                                                        <div class="form-group">
+                                                            <label for="assignment">Assignment</label>
+                                                                <select name="assignment" id="assignment" readonly>
+                                                                     <option value="{{ assign.id }}" selected>{{ assign }}</option>
+                                                                </select>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="submitfile">Submission File</label>
+                                                            <input type="file" class="form-control-file" id="submitfile" name="submitfile">
+                                                        </div>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="submit" class="btn btn-success">Submit</button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-footer">
+                                    {% if assign in submitted %}
+                                        {% for objs in submissions %}
+                                            {% ifequal assign objs.assignment  %}
+                                                <a href="{{ objs.doc.url }}" class="btn btn-primary">Check Submission</a>
+                                            {% endifequal %}
+                                        {% endfor %}
+                                    {% else %}
+                                            <button type="button" class="btn btn-primary" disabled>Check Submission</button>
+                                    {% endif %}
                                 </div>
                             </div>
                         </div>
@@ -26,5 +73,6 @@
                 <h1 class="display-4 text-muted">No Assignments</h1>
             </div>
         {% endif %}
+
     </div>
 {% endblock content %}

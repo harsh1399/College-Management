@@ -1,0 +1,36 @@
+{% extends "college_info/base.html" %}
+{% block content %}
+    <div class="container">
+        {% if submissions %}
+            <div class="card">
+                <div class="card-header">
+                    {{ assignment }} Submissions
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-striped text-center">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Roll No</th>
+                                    <th scope="col">Student Name</th>
+                                    <th scope="col">Submission</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for submit in submissions %}
+                                    <tr>
+                                        <td>{{ submit.student.roll_no }}</td>
+                                        <td>{{ submit.student.name }}</td>
+                                        <td><a href="{{ submit.doc.url }}">Check Submission</a></td>
+                                    </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        {% else %}
+            <h2>No Submission</h2>
+        {% endif %}
+    </div>
+{% endblock %}
