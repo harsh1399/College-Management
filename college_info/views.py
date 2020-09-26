@@ -1,6 +1,6 @@
 from django.shortcuts import render,redirect,HttpResponseRedirect
 from college_info.models import Assignment,Staff
-from .forms import AssignmentForm,AttendanceForm,SubmissionForm
+from .forms import AssignmentForm,AttendanceForm
 from .models import Teaches,PeriodTime,BatchAttendance,Attendance,Student,AttendanceTotal,MarksClass,StudentCourse,Course,Submission
 from django.urls import reverse
 from django.contrib.auth.decorators import login_required
@@ -31,9 +31,9 @@ def home(request):
             submission.save()
             return redirect('home')
         else:
-            form = SubmissionForm()
+            #form = SubmissionForm()
             context['assignments']=Assignment.objects.filter(teach__batch__id=request.user.student.batch_id.id)
-            context['form']=form
+            #context['form']=form
             sub_objs= Submission.objects.filter(student=request.user.student)
             l=[]
             for obj in sub_objs:

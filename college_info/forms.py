@@ -32,10 +32,3 @@ class AttendanceForm(forms.ModelForm):
 
         }
 
-class SubmissionForm(forms.ModelForm):
-    class Meta:
-        model =Submission
-        fields = ['assignment','doc']
-        labels ={
-            'doc':'Submission file'
-        }
