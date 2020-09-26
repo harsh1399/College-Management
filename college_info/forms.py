@@ -1,5 +1,5 @@
 from django import forms
-from .models import Assignment,BatchAttendance
+from .models import Assignment,BatchAttendance,Submission
 from functools import partial
 
 DateInput =partial(forms.DateInput,{'class':'datepicker'})
@@ -30,4 +30,12 @@ class AttendanceForm(forms.ModelForm):
         widgets={
             'date':DateInput()
 
+        }
+
+class SubmissionForm(forms.ModelForm):
+    class Meta:
+        model =Submission
+        fields = ['assignment','doc']
+        labels ={
+            'doc':'Submission file'
         }

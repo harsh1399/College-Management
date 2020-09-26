@@ -42,6 +42,7 @@
                                     <h6 class="card-subtitle mb-2 text-muted">Submission Date:{{ assign.submission_date }}</h6>
                                     <p class="card-text">{{ assign.message }}</p>
                                     <a href="{{ assign.doc.url }}" class="card-link">Assignment File</a>
+                                    <a href="{% url 'check_submission' assign.id %}" class="card-link">Check Submissions</a>
                                 </div>
                             </div>
                         </div>

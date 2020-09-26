@@ -99,6 +99,14 @@ class Assignment(models.Model):
     def date_passed(self):
         return date.today() > self.submission_date
 
+class Submission(models.Model):
+    assignment = models.ForeignKey(Assignment,on_delete=models.CASCADE)
+    student = models.ForeignKey(Student,on_delete=models.CASCADE)
+    doc = models.FileField(upload_to='submissions')
+
+    def __str__(self):
+        return '{}:{}'.format(self.assignment,self.student)
+
 class PeriodTime(models.Model):
     TimeSlots = (
         ('8:45-9:45','8:45-9:45'),
@@ -204,8 +212,6 @@ class MarksClass(models.Model):
 
     class Meta:
         unique_together=(('teach','name'),)
-
-
 
     def total_marks(self):
         if self.name=='Insem':

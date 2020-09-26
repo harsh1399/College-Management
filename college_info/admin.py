@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
-from college_info.models import User,Course,Batch,Teaches,Student,Dept,Staff,Assignment,PeriodTime,Attendance,BatchAttendance,AttendanceTotal,StudentCourse,MarksClass,Marks
+from college_info.models import User,Course,Batch,Teaches,Student,Dept,Staff,Assignment,PeriodTime,Attendance,BatchAttendance,AttendanceTotal,StudentCourse,MarksClass,Marks,Submission
 
 class BatchInline(admin.TabularInline):
     model= Batch
@@ -50,6 +50,9 @@ class MarksClassAdmin(admin.ModelAdmin):
 class MarksAdmin(admin.ModelAdmin):
     list_display = ('student_course','name','marks')
 
+class SubmissionAdmin(admin.ModelAdmin):
+    list_display = ('assignment','student')
+
 admin.site.register(User,UserAdmin)
 admin.site.register(Course,CourseAdmin)
 admin.site.register(Batch,BatchAdmin)
@@ -65,3 +68,4 @@ admin.site.register(AttendanceTotal,AttendanceTotalAdmin)
 admin.site.register(StudentCourse,StudentCourseAdmin)
 admin.site.register(MarksClass,MarksClassAdmin)
 admin.site.register(Marks,MarksAdmin)
+admin.site.register(Submission,SubmissionAdmin)

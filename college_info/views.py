@@ -1,7 +1,7 @@
 from django.shortcuts import render,redirect,HttpResponseRedirect
 from college_info.models import Assignment,Staff
-from .forms import AssignmentForm,AttendanceForm
-from .models import Teaches,PeriodTime,BatchAttendance,Attendance,Student,AttendanceTotal,MarksClass,StudentCourse,Course
+from .forms import AssignmentForm,AttendanceForm,SubmissionForm
+from .models import Teaches,PeriodTime,BatchAttendance,Attendance,Student,AttendanceTotal,MarksClass,StudentCourse,Course,Submission
 from django.urls import reverse
 from django.contrib.auth.decorators import login_required
 from django.utils import timezone
@@ -22,7 +22,25 @@ def home(request):
             context['form']=form
         return render(request,'college_info/staff_home.html',context)
     else:
-        context['assignments']=Assignment.objects.filter(teach__batch__id=request.user.student.batch_id.id)
+        if request.method=='POST':
+            assignment = request.POST['assignment']
+            submit = request.FILES['submitfile']
+            student = request.user.student
+            assign = Assignment.objects.get(id=assignment)
+            submission = Submission(assignment=assign,student=student,doc=submit)
+            submission.save()
+            return redirect('home')
+        else:
+            form = SubmissionForm()
+            context['assignments']=Assignment.objects.filter(teach__batch__id=request.user.student.batch_id.id)
+            context['form']=form
+            sub_objs= Submission.objects.filter(student=request.user.student)
+            l=[]
+            for obj in sub_objs:
+                a = Assignment.objects.get(submission=obj)
+                l.append(a)
+            context['submitted']=l
+            context['submissions']=sub_objs
     return render(request,'college_info/home.html',context)
 
 @login_required()
@@ -222,3 +240,13 @@ def student_marks(request,stud_roll_no):
         sc= StudentCourse.objects.get(student=student,course=teach.course)
         sclist.append(sc)
     return render(request,'college_info/student_marks_list.html',{'sclist':sclist})
+
+@login_required()
+def check_submission(request,assignment_id):
+    submissions= Submission.objects.filter(assignment__id= assignment_id)
+    assignment = Assignment.objects.get(id = assignment_id)
+    context={
+        'submissions':submissions,
+        'assignment':assignment
+    }
+    return render(request,'college_info/staff_check_submission.html',context)

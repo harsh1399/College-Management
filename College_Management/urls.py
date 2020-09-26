@@ -38,6 +38,7 @@ urlpatterns = [
     path('staff/EnterMarks/<slug:markclass_id>/confirm',views.staff_marks_confirm,name='marks_confirm'),
     path('staff/EditMarks/<slug:markclass_id>/',views.staff_edit_marks,name='edit_marks'),
     path('staff/student/marks/<slug:teaches_id>/',views.staff_student_marks,name='staff_student_marks'),
+    path('staff/check_submissions/<slug:assignment_id>',views.check_submission,name='check_submission'),
     path('admin/', admin.site.urls),
 ]
 if settings.DEBUG:
