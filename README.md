@@ -1,6 +1,6 @@
 # College-Management
 College Management is a one-stop website for students and teachers. It allows interaction between students and teachers. On this website teachers can post assignments, enter marks and attendance and students can download assignment files,submit their solutions,check marks and attendance in respective subjects.
-
+To run website: http://collegemanagement.pythonanywhere.com/
 ## Prerequisites
 
 Before you begin, ensure you have met the following requirements:
